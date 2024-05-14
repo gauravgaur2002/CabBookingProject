@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Book Cab
+     </title> 
+     <link type="image/x-icon" href="C:\Users\GAURAV\Downloads\WhatsApp Image 2024-03-01 at 12.07.16 PM-fotor-2024041512270.png" rel="icon">
+     
+      <script src="https://apis.mappls.com/advancedmaps/api/<b199d6966fc927aa43b4b2e19000cdf3>/map_sdk?v=3.0&layer=vector"></script>
+    <link rel="stylesheet" href="register.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+  </head>
+  <body>
+    <div class="main_container flt">
+      <div class="header_container flt" id="home">
+          <div class="container">
+              <div class="header flt">
+                  <div class="logo" >
+                      <img src="logo.jpeg" alt="logo" id="image12" />
+                  </div>
+                  <ul class="menuH" id="mobileMenu">
+                      <div class="menuH_close hide_desktop">
+                          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"></a>
+                      </div>
+                      <li><a class="active" id="menu_home" href="Roadwayss.html">Home</a></li>
+                      <li><a id="menu_about">About Us</a></li>
+                      <li><a id="menu_why">Why Us</a></li>
+                      <li><a id="menu_gallery">Gallery</a></li>
+                      
+              
+                      <li class="book_ride hide_mobile">  <a href="register.html" 
+                              >Book cab    </a></li> 
+                              
+
+                  </ul>
+                  <div class="add_cab">
+                      <a href= "login.html" >Attach your cab </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+    
+    <div class="container2">
+      <div class="wrapper">
+        <div class="title"><span>Book now</span></div>
+        <form action="#">
+          <div class="row">
+           <h3> Enter name</h3>
+            <input type="text" placeholder="Enter name" required>
+          </div>
+          <div class="row">
+          <h3> Enter mobile number</h3>
+            <input type="text" placeholder="Enter name" required>
+          </div>
+          <div class="row">
+            <h3 class="pickup"  onclick="fun1()"> Enter pickup location</h3>
+            <input type="text" id="location" placeholder="Enter location" required>
+          </div>
+          <div class="row">
+            <h3> Enter drop location </h3>
+            <input type="text" id="location" placeholder="Enter destinations" required>
+          </div>
+          <div class="Registerbutton">
+			<div class="row button">
+            <input type="submit" value="Check Price">
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+  </body>
+</html>
