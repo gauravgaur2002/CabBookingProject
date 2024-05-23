@@ -1,0 +1,124 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Cab</title>
+    <script src="proxy.js"></script>
+    <link type="image/x-icon" href="C:\Users\GAURAV\Downloads\WhatsApp Image 2024-03-01 at 12.07.16 PM-fotor-2024041512270.png" rel="icon">
+    <script src="https://apis.mapmyindia.com/advancedmaps/v1/b199d6966fc927aa43b4b2e19000cdf3/map_load?v=1.5"></script>
+    <link rel="stylesheet" href="register.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <style>
+        .form-group {
+            margin-bottom: 15px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+<div class="main_container flt">
+    <div class="header_container flt" id="home">
+        <div class="container">
+            <div class="header flt">
+                <div class="logo">
+                    <img src="logo.jpeg" alt="logo" id="image12"/>
+                </div>
+                <ul class="menuH" id="mobileMenu">
+                    <div class="menuH_close hide_desktop">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"></a>
+                    </div>
+                    <li><a class="active" id="menu_home" href="Roadwayss.html">Home</a></li>
+                    <li><a id="menu_about">About Us</a></li>
+                    <li><a id="menu_why">Why Us</a></li>
+                    <li><a id="menu_gallery">Gallery</a></li>
+                    <li class="book_ride hide_mobile"><a href="CabBook.html">Book cab</a></li>
+                </ul>
+                <div class="add_cab">
+                    <a href="AddCab.html">Attach your cab</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container2">
+        <div class="wrapper">
+            <div class="title"><span>Book now</span></div>
+            <form id="priceCheckForm">
+                <div class="row">
+                    <h3>Enter name</h3>
+                    <input type="text" name="name" placeholder="Enter name" required>
+                </div>
+                <div class="row">
+                    <h3>Enter mobile number</h3>
+                    <input type="text" name="mobile" placeholder="Enter mobile number" required>
+                </div>
+                <div class="row">
+                    <h3>Enter pickup location</h3>
+                    <input type="text" id="pickup" name="pickup" placeholder="Enter pickup location" required>
+                </div>
+                <div class="row">
+                    <h3>Enter drop location</h3>
+                    <input type="text" id="drop" name="drop" placeholder="Enter drop location" required>
+                </div>
+                <div class="Registerbutton">
+                    <div class="row button">
+                        <input type="button" value="Check Price" onclick="checkPrice()">
+                    </div>
+                </div>
+            </form>
+            <div id="result"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    async function getCoordinates(address) {
+        const response = await fetch(`https://apis.mapmyindia.com/advancedmaps/v1/YOUR_API_KEY/geo_code?addr=${encodeURIComponent(address)}`);
+        const data = await response.json();
+        if (data.copResults && data.copResults.length > 0) {
+            return {
+                lat: data.copResults[0].latitude,
+                lon: data.copResults[0].longitude
+            };
+        } else {
+            throw new Error("Address not found");
+        }
+    }
+
+    function calculateDistance(coord1, coord2) {
+        const R = 6371; // Radius of the Earth in kilometers
+        const dLat = (coord2.lat - coord1.lat) * Math.PI / 180;
+        const dLon = (coord2.lon - coord1.lon) * Math.PI / 180;
+        const a =
+            0.5 - Math.cos(dLat) / 2 +
+            Math.cos(coord1.lat * Math.PI / 180) * Math.cos(coord2.lat * Math.PI / 180) *
+            (1 - Math.cos(dLon)) / 2;
+        return R * 2 * Math.asin(Math.sqrt(a));
+    }
+
+    async function checkPrice() {
+        const pickupLocation = document.getElementById('pickup').value;
+        const dropLocation = document.getElementById('drop').value;
+
+        try {
+            const pickupCoord = await getCoordinates(pickupLocation);
+            const dropCoord = await getCoordinates(dropLocation);
+
+            const distance = calculateDistance(pickupCoord, dropCoord);
+            const price = distance * 10; // Example price calculation: 10 currency units per km
+
+            document.getElementById('result').innerText = `Estimated Price: ${price.toFixed(2)} currency units`;
+
+        } catch (error) {
+            document.getElementById('result').innerText = `Error: ${error.message}`;
+        }
+    }
+</script>
+</body>
+</html> -->
